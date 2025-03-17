@@ -9,6 +9,6 @@ public class Calculator : ICalculator
 {
   public float Add(float a, float b)
   {
-    throw new NotImplementedException();
+    return a + b;
   }
 }
