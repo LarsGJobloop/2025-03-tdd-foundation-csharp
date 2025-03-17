@@ -16,4 +16,16 @@ public class Addition
         // Assert
         Assert.Equal(4, result);
     }
+
+    [Fact]
+    public void WhatToDoWithOverflowOrUnderflow()
+    {
+        // Arrange
+        var calculator = new Calculator();
+        float a = float.MaxValue;
+        float b = float.MaxValue;
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => calculator.Add(a, b));
+    }
 }
