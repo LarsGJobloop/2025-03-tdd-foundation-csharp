@@ -45,3 +45,7 @@ Here's a recap of the commands
     ```sh
     dotnet test
     ```
+
+## Scratches
+
+![Scratches from class](/Docs/test-driven-development-foundations.png)
