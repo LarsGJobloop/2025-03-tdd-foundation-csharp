@@ -25,6 +25,8 @@ public class Calculator : ICalculator
       throw new ArgumentException($"Numbers must add up to something less then {float.MaxValue} or {float.MinValue}");
     }
 
+    _logger?.Log($"Added {a} and {b}");
+
     return a + b;
   }
 }
