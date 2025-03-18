@@ -18,7 +18,7 @@ public class Addition
     }
 
     [Fact]
-    public void WhatToDoWithOverflowOrUnderflow()
+    public void OverflowThrowsAnException()
     {
         // Arrange
         var calculator = new Calculator();
