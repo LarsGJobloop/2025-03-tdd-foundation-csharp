@@ -1,4 +1,7 @@
-﻿namespace Calculator.Tests;
+﻿using Logger;
+using Moq;
+
+namespace Calculator.Tests;
 
 public class Addition
 {
@@ -27,5 +30,27 @@ public class Addition
 
         // Act & Assert
         Assert.Throws<ArgumentException>(() => calculator.Add(a, b));
+    }
+}
+
+public class LoggingCalculator
+{
+    [Fact]
+    public void AdditionLogsOperation()
+    {
+        // Arrange
+        var logger = new Mock<ICustomLogger>();
+        // We need a reference to the logger instance which we pass in to
+        // the Calculator constructor
+        var calculator = new Calculator(logger.Object);
+        float a = 10;
+        float b = 10;
+        string logMessage = $"Added {a} and {b}";
+
+        // Act
+        calculator.Add(a, b);
+
+        // Assert
+        logger.Verify(l => l.Log(logMessage), Times.Once);
     }
 }
